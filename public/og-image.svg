@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1020"/>
+      <stop offset="1" stop-color="#151030"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="600" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F8CFF"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="textAccent" x1="0" y1="0" x2="700" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F8CFF"/>
+      <stop offset="0.5" stop-color="#818CF8"/>
+      <stop offset="1" stop-color="#A855F7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="180" cy="120" r="320" fill="#4F8CFF" opacity="0.14"/>
+  <circle cx="1050" cy="540" r="360" fill="#8B5CF6" opacity="0.14"/>
+  <rect x="100" y="100" width="1000" height="430" rx="24" fill="white" opacity="0.03" stroke="white" stroke-opacity="0.1"/>
+  <!-- Logo mark -->
+  <rect x="140" y="140" width="88" height="88" rx="22" fill="url(#accent)"/>
+  <path d="M168 192C168 178.745 178.745 168 192 168h40c13.255 0 24 10.745 24 24v40c0 13.255-10.745 24-24 24h-40c-13.255 0-24-10.745-24-24v-40Z" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+  <circle cx="192" cy="192" r="5.5" fill="white"/>
+  <circle cx="232" cy="204" r="5.5" fill="white"/>
+  <circle cx="192" cy="216" r="5.5" fill="white"/>
+  <path d="M197.5 192h24M232 198.5v11M197.5 216h24" stroke="white" stroke-width="5" stroke-linecap="round"/>
+  <!-- Headline -->
+  <text x="140" y="330" fill="white" font-family="Arial, sans-serif" font-size="72" font-weight="bold" letter-spacing="-1">FlowSync CRM</text>
+  <text x="140" y="410" fill="url(#textAccent)" font-family="Arial, sans-serif" font-size="56" font-weight="bold" letter-spacing="-0.5">AI Powered Business Platform</text>
+  <text x="140" y="462" fill="white" fill-opacity="0.6" font-family="Arial, sans-serif" font-size="26">CRM · HRMS · Invoicing — one intelligent platform</text>
+</svg>

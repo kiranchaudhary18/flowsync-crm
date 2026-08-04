@@ -24,11 +24,11 @@ const siteUrl = "https://flowsync-crm.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "FlowSync CRM | One Platform. Every Workflow.",
+    default: "FlowSync CRM | AI Powered Business Platform",
     template: "%s | FlowSync CRM",
   },
   description:
-    "Modern CRM for Lead Management, HRMS, Invoicing and Integrations. Unify your entire business workflow in one premium platform.",
+    "FlowSync CRM helps businesses manage CRM, HRMS and Invoicing from one intelligent platform.",
   keywords: [
     "CRM",
     "Lead Management",
@@ -50,24 +50,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "FlowSync CRM",
-    title: "FlowSync CRM | One Platform. Every Workflow.",
+    title: "FlowSync CRM | AI Powered Business Platform",
     description:
-      "Modern CRM for Lead Management, HRMS, Invoicing and Integrations. Unify your entire business workflow in one premium platform.",
+      "FlowSync CRM helps businesses manage CRM, HRMS and Invoicing from one intelligent platform.",
     images: [
       {
-        url: "/og-image.svg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "FlowSync CRM — One Platform. Every Workflow.",
+        alt: "FlowSync CRM — AI Powered Business Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FlowSync CRM | One Platform. Every Workflow.",
+    title: "FlowSync CRM | AI Powered Business Platform",
     description:
-      "Modern CRM for Lead Management, HRMS, Invoicing and Integrations.",
-    images: ["/og-image.svg"],
+      "FlowSync CRM helps businesses manage CRM, HRMS and Invoicing from one intelligent platform.",
+    images: ["/og-image.png"],
     creator: "@flowsync",
   },
   robots: {
@@ -84,8 +84,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/icons/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/manifest.webmanifest",
   alternates: {
@@ -95,8 +97,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a14" },
-    { media: "(prefers-color-scheme: light)", color: "#0a0a14" },
+    { media: "(prefers-color-scheme: dark)", color: "#0B1020" },
+    { media: "(prefers-color-scheme: light)", color: "#0B1020" },
   ],
   width: "device-width",
   initialScale: 1,

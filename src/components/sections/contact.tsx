@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { AnimatedButton } from "@/components/common/animated-button";
 import { Reveal } from "@/components/animations/reveal";
 import { Floating } from "@/components/animations/motion-primitives";
+import { ToastContainer, useToast } from "@/components/common/toast";
 
 const contactInfo = [
   {
@@ -27,20 +28,65 @@ const contactInfo = [
   },
 ];
 
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  message: string;
+}
+
+const initialFormData: FormData = {
+  name: "",
+  email: "",
+  phone: "",
+  company: "",
+  message: "",
+};
+
 export function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const { toasts, success, error, dismissToast } = useToast();
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleInputChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }
+
+  function resetForm() {
+    setFormData(initialFormData);
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
-    /* Simulate async submission — replace with real endpoint */
-    setTimeout(() => {
-      setSubmitting(false);
+
+    try {
+      /* Simulate async submission — replace with real endpoint */
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      // Show success toast
+      success(
+        "Demo request submitted successfully! We'll contact you within 24 hours."
+      );
+
+      // Reset form
+      resetForm();
       setSubmitted(true);
+
+      // Hide success message after 4 seconds
       setTimeout(() => setSubmitted(false), 4000);
-      e.currentTarget.reset();
-    }, 1500);
+    } catch (err) {
+      // Show error toast
+      error("Something went wrong. Please try again later.");
+      console.error("Form submission error:", err);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -135,6 +181,8 @@ export function Contact() {
                   <Input
                     id="name"
                     name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     placeholder="John Carter"
                     required
                     className="h-11 rounded-xl border-white/10 bg-white/5 px-4 text-white placeholder:text-muted-foreground/60 focus-visible:border-blue-400/50 focus-visible:ring-blue-400/20"
@@ -152,6 +200,8 @@ export function Contact() {
                     id="email"
                     name="email"
                     type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="john@company.com"
                     required
                     className="h-11 rounded-xl border-white/10 bg-white/5 px-4 text-white placeholder:text-muted-foreground/60 focus-visible:border-blue-400/50 focus-visible:ring-blue-400/20"
@@ -171,6 +221,8 @@ export function Contact() {
                     id="phone"
                     name="phone"
                     type="tel"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     placeholder="+91 98765 43210"
                     required
                     className="h-11 rounded-xl border-white/10 bg-white/5 px-4 text-white placeholder:text-muted-foreground/60 focus-visible:border-blue-400/50 focus-visible:ring-blue-400/20"
@@ -187,6 +239,8 @@ export function Contact() {
                   <Input
                     id="company"
                     name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
                     placeholder="Acme Corp"
                     required
                     className="h-11 rounded-xl border-white/10 bg-white/5 px-4 text-white placeholder:text-muted-foreground/60 focus-visible:border-blue-400/50 focus-visible:ring-blue-400/20"
@@ -204,6 +258,8 @@ export function Contact() {
                 <Textarea
                   id="message"
                   name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   placeholder="Tell us about your business and what you&rsquo;d like to automate…"
                   required
                   className="min-h-28 rounded-xl border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-muted-foreground/60 focus-visible:border-blue-400/50 focus-visible:ring-blue-400/20"
@@ -213,6 +269,7 @@ export function Contact() {
               <AnimatedButton
                 type="submit"
                 loading={submitting}
+                disabled={submitting}
                 className="w-full py-4 text-base"
               >
                 {submitted ? "Request received!" : "Book Free Demo"}
@@ -235,6 +292,9 @@ export function Contact() {
           </div>
         </Reveal>
       </div>
+
+      {/* Toast notifications */}
+      <ToastContainer toasts={toasts} onDismiss={dismissToast} />
     </section>
   );
 }

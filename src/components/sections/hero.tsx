@@ -201,9 +201,11 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <AnimatedButton
-              href="#features"
+              href="https://www.loom.com/share/d4824edd9a9242e89ad24ba54f278af9"
               variant="ghost"
               className="px-8 py-4 text-base"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <span className="flex size-5 items-center justify-center">
                 <svg viewBox="0 0 24 24" fill="none" className="size-4">

@@ -15,6 +15,8 @@ interface AnimatedButtonProps {
   loading?: boolean;
   disabled?: boolean;
   magnetic?: boolean;
+  target?: string;
+  rel?: string;
 }
 
 export function AnimatedButton({
@@ -27,6 +29,8 @@ export function AnimatedButton({
   loading = false,
   disabled = false,
   magnetic = true,
+  target,
+  rel,
 }: AnimatedButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
@@ -74,6 +78,8 @@ export function AnimatedButton({
       href={href}
       className={baseStyles}
       aria-disabled={disabled}
+      target={target}
+      rel={rel}
       {...motionProps}
     >
       {content}
